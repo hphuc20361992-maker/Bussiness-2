@@ -1,1 +1,341 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doanh Nghiệp Thịnh Vượng | Giải Pháp Kinh Doanh Toàn Diện</title>
+    <style>
+        /* Toàn bộ trang web */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Thanh menu điều hướng */
+        header {
+            background-color: #0f172a;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo h1 {
+            color: #38bdf8;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Phần Banner chính (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0284c7;
+        }
+
+        /* Phần Container chung cho nội dung */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+            color: #0f172a;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #38bdf8;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Phần Giới thiệu (About) */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Phần Dịch vụ (Services) */
+        .services {
+            background-color: #f1f5f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* Phần Liên hệ (Contact) */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Chân trang (Footer) */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        /* Tương thích điện thoại di động */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>ThịnhVượng Co.</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Trang Chủ</a></li>
+                <li><a href="#about">Giới Thiệu</a></li>
+                <li><a href="#services">Dịch Vụ</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BANNER CHÍNH -->
+    <section id="home" class="hero">
+        <h2>Nâng Tầm Doanh Nghiệp Của Bạn</h2>
+        <p>Chúng tôi cung cấp các giải pháp công nghệ và chiến lược kinh doanh toàn diện giúp doanh nghiệp của bạn đột phá doanh thu.</p>
+        <a href="#contact" class="btn">Hợp Tác Ngay</a>
+    </section>
+
+    <!-- GIỚI THIỆU -->
+    <section id="about" class="container">
+        <h2 class="section-title">Về Chúng Tôi</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Với hơn 10 năm kinh nghiệm trong ngành, chúng tôi tự hào là đối tác chiến lược của hàng trăm doanh nghiệp lớn nhỏ tại Việt Nam.</p>
+                <p>Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng lắng nghe, phân tích và đưa ra những giải pháp tối ưu nhất, phù hợp với từng mô hình kinh doanh đặc thù.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://unsplash.com" alt="Đội ngũ làm việc">
+            </div>
+        </div>
+    </section>
+
+    <!-- DỊCH VỤ -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Dịch Vụ Của Chúng Tôi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Chiến Lược Kinh Doanh</h3>
+                    <p>Lập kế hoạch dài hạn, tối ưu hóa quy trình vận hành và kiểm soát rủi ro tài chính hiệu quả.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Chuyển Đổi Số</h3>
+                    <p>Xây dựng hệ thống website, ứng dụng và ứng dụng công nghệ AI vào quy trình quản lý doanh nghiệp.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Marketing Toàn Diện</h3>
+                    <p>Phát triển thương hiệu vững chắc và tiếp cận hàng triệu khách hàng mục tiêu trên Internet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Kết Nối Với Chúng Tôi</h2>
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Họ và Tên:</label>
+                    <input type="text" id="name" name="name" required placeholder="Nhập họ và tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Ví dụ: email@congty.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Lời nhắn:</label>
+                    <textarea id="message" name="message" required placeholder="Bạn cần chúng tôi hỗ trợ dịch vụ gì?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Gửi Yêu Cầu</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CHÂN TRANG -->
+    <footer>
+        <p>&copy; 2026 Công Ty Cổ Phần Đầu Tư Thịnh Vượng. Tất cả các quyền được bảo hộ.</p>
+    </footer>
+
+</body>
+</html>
